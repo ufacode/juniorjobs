@@ -1,24 +1,7 @@
-# README
+# Junior IT Jobs
+jobs board for junior developers
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+[Public Trello](https://trello.com/b/kTJesWXW/juniorjobs)
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![schema](https://trello-attachments.s3.amazonaws.com/57c17ba908b992e34ee0e795/962x668/65f9d6526b34d97f8d05dfa049ca785c/JuniorJobs.png)

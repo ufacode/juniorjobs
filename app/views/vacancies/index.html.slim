@@ -1,0 +1,45 @@
+h1 Listing vacancies
+
+table
+  thead
+    tr
+      th Name
+      th Kind
+      th Description
+      th Money from
+      th Money to
+      th Location
+      th Remote
+      th Expire at
+      th Company
+      th Site
+      th Phone
+      th Contact fio
+      th User
+      th
+      th
+      th
+
+  tbody
+    - @vacancies.each do |vacancy|
+      tr
+        td = vacancy.name
+        td = vacancy.kind
+        td = vacancy.description
+        td = vacancy.money_from
+        td = vacancy.money_to
+        td = vacancy.location
+        td = vacancy.remote
+        td = vacancy.expire_at
+        td = vacancy.company
+        td = vacancy.site
+        td = vacancy.phone
+        td = vacancy.contact_fio
+        td = vacancy.user_id
+        td = link_to 'Show', vacancy
+        td = link_to 'Edit', edit_vacancy_path(vacancy)
+        td = link_to 'Destroy', vacancy, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Vacancy', new_vacancy_path

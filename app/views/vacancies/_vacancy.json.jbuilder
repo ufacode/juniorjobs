@@ -1,0 +1,2 @@
+json.extract! vacancy, :id, :name, :kind, :description, :money_from, :money_to, :location, :remote, :expire_at, :company, :site, :phone, :contact_fio, :user_id, :created_at, :updated_at
+json.url vacancy_url(vacancy, format: :json)

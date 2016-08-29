@@ -1,0 +1,45 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @vacancy.name
+p
+  strong Kind:
+  = @vacancy.kind
+p
+  strong Description:
+  = @vacancy.description
+p
+  strong Money from:
+  = @vacancy.money_from
+p
+  strong Money to:
+  = @vacancy.money_to
+p
+  strong Location:
+  = @vacancy.location
+p
+  strong Remote:
+  = @vacancy.remote
+p
+  strong Expire at:
+  = @vacancy.expire_at
+p
+  strong Company:
+  = @vacancy.company
+p
+  strong Site:
+  = @vacancy.site
+p
+  strong Phone:
+  = @vacancy.phone
+p
+  strong Contact fio:
+  = @vacancy.contact_fio
+p
+  strong User:
+  = @vacancy.user_id
+
+= link_to 'Edit', edit_vacancy_path(@vacancy)
+'|
+= link_to 'Back', vacancies_path

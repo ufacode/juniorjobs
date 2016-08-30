@@ -1,0 +1,45 @@
+= form_for @profile, html: { multipart: true } do |f|
+
+  .field
+    = f.label :Photo
+    = f.file_field :photo
+  .field
+    = f.label :Cv
+    = f.file_field :cv
+  .field
+    = f.label :fio
+    = f.text_field :fio
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :descriprion
+    = f.text_field :descriprion
+  .field
+    = f.label :money_from
+    = f.text_field :money_from
+  .field
+    = f.label :money_to
+    = f.text_field :money_to
+  .field
+    = f.label :location
+    = f.text_field :location
+  .field
+    = f.label :category
+    = f.text_field :category
+  .field
+    = f.label :expectations
+    = f.text_field :expectations
+  .field
+    = f.label :skype
+    = f.text_field :skype
+  .field
+    = f.label :site
+    = f.text_field :site
+  .field
+    = f.label :linkedin
+    = f.text_field :linkedin
+  
+
+  .actions = f.submit
+end

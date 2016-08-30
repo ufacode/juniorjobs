@@ -1,0 +1,44 @@
+p#notice = notice
+
+p
+  strong Fio:
+  = @profile.fio
+p
+  strong Name:
+  = @profile.name
+p
+  strong Descriprion:
+  = @profile.descriprion
+p
+  strong Money from:
+  = @profile.money_from
+p
+  strong Money to:
+  = @profile.money_to
+p
+  strong Location:
+  = @profile.location
+p
+  strong Category:
+  = @profile.category
+p
+  strong Expectations:
+  = @profile.expectations
+p
+  strong Skype:
+  = @profile.skype
+p
+  strong Site:
+  = @profile.site
+p
+  strong Linkedin:
+  = @profile.linkedin
+p
+  strong Photo:
+  = image_tag @profile.photo.url
+p
+  strong Cv:
+  = @profile.cv
+= link_to 'Edit', edit_profile_path(@profile)
+'|
+= link_to 'Back', profiles_path

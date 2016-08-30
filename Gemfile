@@ -9,6 +9,7 @@ gem 'bootstrap-sass'
 gem 'brakeman', require: false, group: [:development, :test]
 gem 'byebug', group: [:development, :test], platform: :mri
 gem 'bullet', group: [:development]
+gem 'carrierwave'
 gem 'coffee-rails', '~> 4.2'
 gem 'database_cleaner', group: [:development, :test]
 gem 'devise'
@@ -16,6 +17,7 @@ gem 'factory_girl_rails', group: [:development, :test]
 gem 'faker', group: [:development, :test]
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
+gem 'mini_magick'
 gem 'mysql2', '>= 0.3.18', '< 0.5'
 gem 'nprogress-rails' # turbolinks progressbar
 gem 'paranoia', github: 'rubysherpas/paranoia', branch: 'rails5'

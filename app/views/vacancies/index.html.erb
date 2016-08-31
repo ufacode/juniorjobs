@@ -1,0 +1,7 @@
+<h1>All vacancy</h1>
+
+<% @vacancy.each do |v| %>
+	<h2><%= link_to v.name, v %><h2/>
+<% end %>
+
+<%= link_to "New Vacancy", new_vacancy_path %>

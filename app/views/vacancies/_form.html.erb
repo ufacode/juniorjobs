@@ -1,0 +1,38 @@
+<div class="row-fluid">
+	<div class="span4 well">
+		<%= form_for(@vacancy) do |f| %>
+			<%= f.label :name %><br>
+			<%= f.text_field :name %><br>
+
+			<%= f.label :kind %><br>
+			<%= f.text_field :kind %><br>
+
+			<%= f.label :description %><br>
+			<%= f.text_field :description %><br>
+
+			<%= f.label :location %><br>
+			<%= f.text_field :location %><br>
+
+			<%= f.label :remote %><br>
+			<%= f.text_field :remote %><br>
+
+			<%= f.label :company %><br>
+			<%= f.text_field :company %><br>
+
+			<%= f.label :site %><br>
+			<%= f.url_field :site %><br>
+
+			<%= f.label :phone %><br>
+			<%= f.telephone_field :phone %><br>
+
+			<%= f.label :contact_to %><br>
+			<%= f.text_field :contact_to %><br>
+
+			<%= f.label :expire %><br>
+			<%= f.select(:expire, options_for_select( [[7],[14],[30]] )) %><br>
+
+			<%= f.submit "Create vacancy", class: "btn btn-large btn-primary" %>
+
+		<% end %>
+	</div>
+</div>

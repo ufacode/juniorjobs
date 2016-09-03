@@ -1,14 +1,12 @@
 # frozen_string_literal: true
 class Vacancy < ApplicationRecord
-	validates :name, presence: true
-	validates :kind, presence: true
-	validates :description, presence: true
-	validates :contact_to, presence: true
-	validates :expire, presence: true
+	before_save :expire_date, on: :create
+	validates :name, :kind, :location, :remote, :company, :site, :phone,
+	:contact_to, :expire, presence: true
+	validates :expire, numericality: {only_integer: true}
 
-	def expire_dates
-		expire_dates = [7, 14, 30]
-		expire_at = DateTime.now + expire_dates[params[:expire]].days
+	def expire_date
+		expire_dates = [7.14,30]
+		expite_at = DateTime.now + expire_dates[expire].days
 	end
-
 end

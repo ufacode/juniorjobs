@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 class VacanciesController < ApplicationController
-  before_action :set_vacancy, only: [:edit, :show]
+  before_action :set_vacancy, only: [:edit, :show, :update]
   def new
     @vacancy = Vacancy.new
   end
@@ -26,13 +26,9 @@ class VacanciesController < ApplicationController
     end
   end
 
-  def edit
-    
-  end
+  def edit; end
 
-  def show
-    
-  end
+  def show; end
 
   private
 
@@ -42,6 +38,6 @@ class VacanciesController < ApplicationController
 
   def vacancy_params
     params.require(:vacancy).permit(:name, :kind, :description, :location, :remote, :company,
-                                    :site, :phone)
+                                    :site, :phone, :contact_to, :expire)
     end
 end

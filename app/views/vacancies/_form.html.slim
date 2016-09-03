@@ -1,0 +1,49 @@
+= form_for(@vacancy) do |f|
+	div.field
+		= f.label :name
+		br
+		= f.text_field :name
+	div.field
+		= f.label :kind
+		br
+		= f.text_field :kind
+	div.field
+		= f.label :dscription
+		br
+		= f.text_field :description
+	div.field
+		= f.label :location
+		br
+		= f.text_field :location
+	div.field
+		= f.label :remote
+		br
+		= f.radio_button :remote, true
+	div.field
+		= f.label :company
+		br
+		= f.text_field :company
+	div.field
+		= f.label :site
+		br
+		= f.text_field :site
+	div.field
+		= f.label :phone
+		br
+		= f.text_field :phone
+	div.field
+		= f.label :contact_to
+		br
+		= f.text_field :contact_to
+	div.field
+		= f.label :expire
+		br
+		= f.select :expire, [["7", 0], ["14", 1], ["30", 2]]
+
+	= submit_tag "Create vacancy", :class => "btn btn-primary pull-left join-button"
+
+
+
+
+
+

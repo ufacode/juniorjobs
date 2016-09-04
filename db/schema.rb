@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160904104003) do
+ActiveRecord::Schema.define(version: 20160904130850) do
 
   create_table "profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "fio"
@@ -34,8 +34,10 @@ ActiveRecord::Schema.define(version: 20160904104003) do
     t.string   "name"
     t.string   "email"
     t.string   "password"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.boolean  "email_confirmed"
+    t.string   "confirm_token"
   end
 
 end

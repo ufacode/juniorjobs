@@ -38,22 +38,18 @@ class ProfilesController < ApplicationController
   # PATCH/PUT /profiles/1
   # PATCH/PUT /profiles/1.json
   def update
-    respond_to do |format|
-      if @profile.update(profile_params)
-        format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
+         if @profile.update(profile_params)
+ redirect_to @profile, notice: 'Profile was successfully updated.' 
       else
-        format.html { render :edit }
+          render :edit 
       end
-    end
   end
 
   # DELETE /profiles/1
   # DELETE /profiles/1.json
   def destroy
     @profile.destroy
-    respond_to do |format|
-      format.html { redirect_to profiles_url, notice: 'Profile was successfully destroyed.' }
-    end
+     redirect_to profiles_url, notice: 'Profile was successfully destroyed.' 
   end
 
   private
@@ -64,6 +60,7 @@ class ProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:fio, :name, :descriprion, :money_from, :money_to, :location, :category, :expectations, :skype, :site, :linkedin, :photo, :cv)
+      params.require(:profile).permit(:fio, :name, :descriprion, :money_from, :money_to, :location, :category,
+      :expectations, :skype, :site, :linkedin, :photo, :cv)
     end
 end

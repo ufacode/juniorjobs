@@ -1,7 +1,7 @@
 # encoding: utf-8
+# frozen_string_literal: true
 
 class CvUploader < CarrierWave::Uploader::Base
-
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
@@ -38,14 +38,13 @@ class CvUploader < CarrierWave::Uploader::Base
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
-   def extension_white_list
-     %w(doc pdf rtf odt)
-   end
+  def extension_white_list
+    %w(doc pdf rtf odt)
+  end
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   # def filename
   #   "something.jpg" if original_filename
   # end
-
 end

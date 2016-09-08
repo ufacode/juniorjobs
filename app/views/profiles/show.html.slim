@@ -38,7 +38,7 @@ p
   = image_tag @profile.photo.thumb.url
 p
   strong Cv:
-  = @profile.cv
+  = link_to "Download Resume", @profile.cv.url
 = link_to 'Edit', edit_profile_path(@profile)
 '|
 = link_to 'Back', profiles_path

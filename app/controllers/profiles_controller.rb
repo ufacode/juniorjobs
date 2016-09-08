@@ -26,42 +26,40 @@ class ProfilesController < ApplicationController
   # POST /profiles.json
   def create
     @profile = Profile.new(profile_params)
-
-
-      if @profile.save
-        redirect_to @profile, notice: 'Profile was successfully created.' 
-      else
-      render :new 
-      end
+    if @profile.save
+      redirect_to @profile, notice: 'Profile was successfully created.'
+    else
+      render :new
+    end
     end
   end
 
-  # PATCH/PUT /profiles/1
-  # PATCH/PUT /profiles/1.json
-  def update
-    if @profile.update(profile_params)
-      redirect_to @profile, notice: 'Profile was successfully updated.'
-    else
-      render :edit
- end
+# PATCH/PUT /profiles/1
+# PATCH/PUT /profiles/1.json
+def update
+  if @profile.update(profile_params)
+    redirect_to @profile, notice: 'Profile was successfully updated.'
+  else
+    render :new
   end
+end
 
-  # DELETE /profiles/1
-  # DELETE /profiles/1.json
-  def destroy
-    @profile.destroy
-    redirect_to profiles_url, notice: 'Profile was successfully destroyed.'
-  end
+# DELETE /profiles/1
+# DELETE /profiles/1.json
+def destroy
+  @profile.destroy
+  redirect_to profiles_url, notice: 'Profile was successfully destroyed.'
+end
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
-  def set_profile
-    @profile = Profile.find(params[:id])
-  end
+# Use callbacks to share common setup or constraints between actions.
+def set_profile
+  @profile = Profile.find(params[:id])
+end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
-  def profile_params
-    params.require(:profile).permit(:fio, :name, :descriprion, :money_from, :money_to, :location, :category,
-                                    :expectations, :skype, :site, :linkedin, :photo, :cv)
-  end
+# Never trust parameters from the scary internet, only allow the white list through.
+def profile_params
+  params.require(:profile).permit(:fio, :name, :descriprion, :money_from, :money_to, :location, :category,
+                                  :expectations, :skype, :site, :linkedin, :photo, :cv)
+end

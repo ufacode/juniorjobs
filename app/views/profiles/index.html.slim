@@ -1,0 +1,43 @@
+h1 Listing profiles
+
+table
+  thead
+    tr
+      th Fio
+      th Name
+      th Descriprion
+      th Money from
+      th Money to
+      th Location
+      th Category
+      th Expectations
+      th Skype
+      th Site
+      th Linkedin
+      th Photo
+      th Cv
+      th
+
+  tbody
+    - @profiles.each do |profile|
+      tr
+        td = profile.fio
+        td = profile.name
+        td = profile.descriprion
+        td = profile.money_from
+        td = profile.money_to
+        td = profile.location
+        td = profile.category
+        td = profile.expectations
+        td = profile.skype
+        td = profile.site
+        td = profile.linkedin
+        td = profile.photo.thumb.url
+        td = profile.cv
+        td = link_to 'Show', profile
+        td = link_to 'Edit', edit_profile_path(profile)
+        td = link_to 'Destroy', profile, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Profile', new_profile_path

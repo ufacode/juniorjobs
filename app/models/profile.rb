@@ -4,10 +4,27 @@ class Profile < ApplicationRecord
 
   mount_uploader :photo, PhotoUploader
   mount_uploader :cv, CvUploader
+  validates :name, presence: true
+  validates :fio, presence: true
+  validates :skype, presence: true
+  validates :site, presence: true
+  validates :category, presence: true
+  validates :cv, presence: true
+  validates :photo, presence: true
+  validates :location, presence: true
+  validates :linkedin, presence: true
+  validates :descriprion, presence: true
+  validates :expectations, presence: true
+  validates :money_from, numericality: true
+  validates :money_to, numericality: true
+  validate :money_from_cannot_be_greater_than_money_to
 
-#   @TODO: add validations (!!!)
-
+  def money_from_cannot_be_greater_than_money_to
+    errors.add(:money_from, 'cannot be greater than money to') if
+    money_from > money_to
+    end
 end
+#   @TODO: add validations (!!!)
 
 # == Schema Information
 #
@@ -29,4 +46,3 @@ end
 #  site         :string(255)
 #  skype        :string(255)
 #  updated_at   :datetime         not null
-#

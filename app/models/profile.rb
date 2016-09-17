@@ -9,8 +9,8 @@ class Profile < ApplicationRecord
   validates :skype, presence: true
   validates :site, presence: true
   validates :category, presence: true
-  validates :cv, presence: true
-  validates :photo, presence: true
+  validates_presence_of :cv
+  validates_presence_of :photo
   validates :location, presence: true
   validates :linkedin, presence: true
   validates :descriprion, presence: true

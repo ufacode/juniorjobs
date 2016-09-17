@@ -4,13 +4,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_secure_password
   has_many :profiles
 
-  validates :name, presence: true
-  validates :email, presence: true, uniqueness: true
-
-  before_create :confirmation_token
+  def name
+    user.name = profile.name
+  end
 
   private
 

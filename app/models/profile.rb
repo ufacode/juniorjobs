@@ -4,28 +4,28 @@ class Profile < ApplicationRecord
 
   mount_uploader :photo, PhotoUploader
   mount_uploader :cv, CvUploader
+
   validates :name, presence: true
   validates :fio, presence: true
   validates :skype, presence: true
   validates :site, presence: true
   validates :category, presence: true
-  validates_presence_of :cv
-  validates_presence_of :photo
+  validates :cv, presence: true
+  validates :photo, presence: true
   validates :location, presence: true
   validates :linkedin, presence: true
-  validates :descriprion, presence: true
+  validates :description, presence: true
   validates :expectations, presence: true
   validates :money_from, numericality: true
   validates :money_to, numericality: true
   validate :money_from_cannot_be_greater_than_money_to
 
-  def money_from_cannot_be_greater_than_money_to
-    errors.add(:money_from, 'cannot be greater than money to') if
-    money_from > money_to
-    end
-end
-#   @TODO: add validations (!!!)
+  private
 
+  def money_from_cannot_be_greater_than_money_to
+    errors.add(:money_from, 'cannot be greater than money to') if money_from > money_to
+  end
+end
 # == Schema Information
 #
 # Table name: profiles
@@ -33,7 +33,7 @@ end
 #  category     :string(255)
 #  created_at   :datetime         not null
 #  cv           :string(255)
-#  descriprion  :string(255)
+#  description  :string(255)
 #  expectations :string(255)
 #  fio          :string(255)
 #  id           :integer          not null, primary key

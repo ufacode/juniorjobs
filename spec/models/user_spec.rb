@@ -16,17 +16,9 @@ RSpec.describe User, type: :model do
     end
 
     it 'checks uniqueness of email' do
-      create(:user, name: subject.name, email: subject.email, password: subject.password)
+      create(:user, name: subject.name, email: subject.email)
       subject.valid?
       expect(subject.errors[:email].count).to be > 0
-    end
-  end
-
-  describe '#confirmation_token' do
-    it 'create token' do
-      subject.confirm_token = nil
-      subject.save
-      expect(subject.confirm_token).not_to be_nil
     end
   end
 end

@@ -2,19 +2,11 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  # devise :database_authenticatable, :registerable,  :recoverable, :rememberable, :trackable, :validatable
   has_many :profiles
 
-  def name
-    user.name = profile.name
-  end
-
-  private
-
-  def confirmation_token
-    self.confirm_token = SecureRandom.urlsafe_base64.to_s if confirm_token.blank?
-  end
+  validates :name, presence: true
+  validates :email, presence: true, uniqueness: true
 end
 
 # == Schema Information

@@ -1,0 +1,21 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  password:
+  socket: /tmp/mysql.sock
+
+development:
+  <<: *default
+  database: jj_development
+
+test:
+  <<: *default
+  database: jj_test
+
+production:
+  <<: *default
+  database: jj_production
+  username:
+  password: <%= ENV['NOTICIAS_DATABASE_PASSWORD'] %>

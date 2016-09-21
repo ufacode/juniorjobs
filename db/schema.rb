@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160910140244) do
+ActiveRecord::Schema.define(version: 20160921135429) do
 
   create_table "profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "fio"
     t.string   "name"
-    t.string   "descriprion"
+    t.string   "description"
     t.decimal  "money_from",   precision: 10
     t.decimal  "money_to",     precision: 10
     t.string   "location"

@@ -1,18 +1,12 @@
 # frozen_string_literal: true
 class User < ApplicationRecord
-  has_secure_password
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  # devise :database_authenticatable, :registerable,  :recoverable, :rememberable, :trackable, :validatable
   has_many :profiles
 
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
-
-  before_create :confirmation_token
-
-  private
-
-  def confirmation_token
-    self.confirm_token = SecureRandom.urlsafe_base64.to_s if confirm_token.blank?
-  end
 end
 
 # == Schema Information

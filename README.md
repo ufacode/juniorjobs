@@ -1,6 +1,7 @@
 # Junior IT Jobs
 jobs board for junior developers
 
+[ ![Codeship Status for ufacode/juniorjobs](https://codeship.com/projects/1ad17ae0-6238-0134-e9e6-0ae4dffb78c7/status?branch=master)](https://codeship.com/projects/175033)
 
 [Public Trello](https://trello.com/b/kTJesWXW/juniorjobs)
 

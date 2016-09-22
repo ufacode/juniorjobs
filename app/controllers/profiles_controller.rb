@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :new]
 
   def index
     @profiles = Profile.all
@@ -43,7 +43,7 @@ class ProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:profile).permit(:fio, :name, :descriprion, :money_from, :money_to, :location, :category,
+    params.require(:profile).permit(:fio, :name, :description, :money_from, :money_to, :location, :category,
                                     :expectations, :skype, :site, :linkedin, :photo, :cv)
   end
 end

@@ -40,6 +40,12 @@
     = f.label :linkedin
     = f.text_field :linkedin
   
+  = f.fields_for :user do |builder|
+    = builder.label :email
+    = builder.text_field :email
+
+    
+
 
   .actions = f.submit
-end
+

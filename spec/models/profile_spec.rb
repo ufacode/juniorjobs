@@ -35,7 +35,7 @@ RSpec.describe Profile, type: :model do
       expect(profile.errors[:location].count).to be > 0
     end
     it 'is invalid when money to lower than money from' do
-      profile = FactoryGirl.build(:profile, money_from: 3001)
+      profile = FactoryGirl.build(:profile, money_to: 999)
       profile.valid?
       expect(profile.errors[:money_from_cannot_be_greater_than_money_to].count).to be > 0
     end

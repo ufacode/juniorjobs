@@ -10,16 +10,22 @@ class ProfilesController < ApplicationController
 
   def new
     @profile = Profile.new
+    @user = user_signed_in? ? current_user : @profile.build_user
   end
 
   def edit; end
 
   def create
     @profile = Profile.new(profile_params)
-    if @profile.save
+    if user_signed_in?
+      UserMailer.successful_create(@user).deliver
+      @profile.save
       redirect_to @profile, notice: 'Profile was successfully created.'
     else
-      render :new
+      @user = User.new(user_params)
+      @user.save
+      UserMailer.registration_confirmation(@user).deliver
+      redirect_to :index, flash[:notice] = 'To confirm your profile, check email'
     end
   end
 
@@ -44,6 +50,6 @@ class ProfilesController < ApplicationController
 
   def profile_params
     params.require(:profile).permit(:fio, :name, :description, :money_from, :money_to, :location, :category,
-                                    :expectations, :skype, :site, :linkedin, :photo, :cv)
+                                    :expectations, :skype, :site, :linkedin, :photo, :cv, user_attributes: [:email])
   end
 end

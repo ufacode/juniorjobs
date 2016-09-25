@@ -19,7 +19,7 @@ table
       th
 
   tbody
-    - @profiles.each do |profile|
+    - @profiles.confirmed do |profile|
       tr
         td = profile.fio
         td = profile.name

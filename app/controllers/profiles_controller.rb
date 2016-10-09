@@ -17,14 +17,14 @@ class ProfilesController < ApplicationController
 
   def create
     @profile = Profile.new(profile_params)
+    @profile.save
     if user_signed_in?
-      UserMailer.successful_create(@user).deliver
-      @profile.save
+      UserMailer.successful_create(@user).deliver_now
       redirect_to @profile, notice: 'Profile was successfully created.'
     else
       @user = User.new(user_params)
       @user.save
-      UserMailer.registration_confirmation(@user).deliver
+      UserMailer.registration_confirmation(@user).deliver_now
       redirect_to :index, flash[:notice] = 'To confirm your profile, check email'
     end
   end

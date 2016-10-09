@@ -2,15 +2,14 @@
 class Profile < ApplicationRecord
   include AASM
 
- aasm do
-    state :unconfirmed, :initial => true
+  aasm do
+    state :unconfirmed, initial: true
     state :confirmed
 
     event :confirm do
       transitions from: :unconfirmed, to: :confirmed
     end
   end
-
 
   belongs_to :user
   accepts_nested_attributes_for :user
@@ -36,7 +35,8 @@ class Profile < ApplicationRecord
   private
 
   def money_from_cannot_be_greater_than_money_to
-    errors.add(:money_from, 'cannot be greater than money to') if money_from > money_to
+    errors.add(:money_from, 'cannot be greater than money to') if
+    money_from > money_to
   end
 end
 
@@ -44,6 +44,7 @@ end
 #
 # Table name: profiles
 #
+#  aasm_state   :string(255)
 #  category     :string(255)
 #  created_at   :datetime         not null
 #  cv           :string(255)

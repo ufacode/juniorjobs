@@ -51,6 +51,7 @@ end
 #  description  :string(255)
 #  expectations :string(255)
 #  fio          :string(255)
+#  hide         :boolean          default(FALSE)
 #  id           :integer          not null, primary key
 #  linkedin     :string(255)
 #  location     :string(255)

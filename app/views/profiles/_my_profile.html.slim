@@ -1,0 +1,8 @@
+tr
+	td= link_to profile.name, profile_path(profile)
+	td= profile.photo.thumb.url
+	td= profile.description
+	td= profile.created_at.strftime('%d/%m/%Y %H:%M')
+	td= link_to 'Edit', edit_profile_path(profile)
+ td = link_to 'Destroy', profile, data: { confirm: 'Are you sure?' }, method: :delete
+		Table Profile 

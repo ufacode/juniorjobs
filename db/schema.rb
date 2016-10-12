@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161009035717) do
+ActiveRecord::Schema.define(version: 20161023214413) do
 
   create_table "profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "fio"
@@ -24,12 +24,13 @@ ActiveRecord::Schema.define(version: 20161009035717) do
     t.string   "skype"
     t.string   "site"
     t.string   "linkedin"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
     t.string   "photo"
     t.string   "cv"
     t.integer  "user_id"
     t.string   "aasm_state"
+    t.boolean  "hide",                        default: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

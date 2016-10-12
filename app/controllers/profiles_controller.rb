@@ -4,6 +4,9 @@ class ProfilesController < ApplicationController
 
   def index
     @profiles = Profile.all
+    if params[:my]
+      @profiles = Profiles.where (user: current_user)
+      render 'my_index'
   end
 
   def show; end

@@ -39,7 +39,10 @@
   .field
     = f.label :linkedin
     = f.text_field :linkedin
-  
+  .field
+    = f.label "don't show this profile"
+    = f.check_box :hide
+
   = f.fields_for :user do |builder|
     = builder.label :email
     = builder.text_field :email

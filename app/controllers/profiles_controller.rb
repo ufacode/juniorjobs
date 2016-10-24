@@ -5,8 +5,9 @@ class ProfilesController < ApplicationController
   def index
     @profiles = Profile.all
     if params[:my]
-      @profiles = Profiles.where (user: current_user)
+      @profiles = @profiles.where(user: current_user)
       render 'my_index'
+    end
   end
 
   def show; end
@@ -43,6 +44,10 @@ class ProfilesController < ApplicationController
   def destroy
     @profile.destroy
     redirect_to profiles_url, notice: 'Profile was successfully destroyed.'
+  end
+  
+  def hide
+    update_attribute!(:displayed, false)
   end
 
   private

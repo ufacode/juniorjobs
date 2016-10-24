@@ -4,5 +4,5 @@ tr
 	td= profile.description
 	td= profile.created_at.strftime('%d/%m/%Y %H:%M')
 	td= link_to 'Edit', edit_profile_path(profile)
- td = link_to 'Destroy', profile, data: { confirm: 'Are you sure?' }, method: :delete
+ 	td= link_to 'Destroy', profile, data: { confirm: 'Are you sure?' }, method: :delete
 		Table Profile 

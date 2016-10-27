@@ -1,0 +1,34 @@
+.pricing-tables
+  .col-lg-12.col-md-12.col-sm-12.wow.zoomIn.animated.animated style=("visibility: visible; animation-name: zoomIn;")
+    .single-table.free
+      .table-heading
+        h3 FREE
+      .table-price
+        h5
+          span> $
+          | 0
+        p /per month
+      .table-description
+        p
+          | Fusce fermentum placerat magna ac pharetra. Aliquam euismod elit non ipsum
+          a href="#"  lacinia
+          | consectetur.
+        button ORDER NOW
+
+
+/td = profile.fio
+/td = profile.name
+/td = profile.description
+/td = profile.money_from
+/td = profile.money_to
+/td = profile.location
+/td = profile.category
+/td = profile.expectations
+/td = profile.skype
+/td = profile.site
+/td = profile.linkedin
+/td = profile.photo.thumb.url
+/td = profile.cv
+/td = link_to 'Show', profile
+/td = link_to 'Edit', edit_profile_path(profile)
+/td = link_to 'Destroy', profile, data: { confirm: 'Are you sure?' }, method: :delete

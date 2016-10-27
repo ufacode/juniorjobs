@@ -1,0 +1,265 @@
+doctype html
+html lang="en"
+  head
+    title JuniorJobs
+    meta charset="UTF-8" /
+    meta content="width=device-width, initial-scale=1.0" name="viewport" /
+    meta content="" name="description" /
+    meta content="" name="author" /
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    script src="js/modernizr.js"
+  /![if lt IE 9]
+      | <script src="js/html5shiv.js"></script
+      | <script src="js/respond.min.js"></script
+  body
+    = render 'shared/header'
+    /= render 'shared/banner'
+
+    section#content
+      = yield
+
+    /! feature sectiona
+    /section#features.features.text-center
+    /  .container
+    /    .row
+    /      h4 product overview
+    /      h2 List of amazing features
+    /      img.img-responsive alt="" src="img/daag.png" /
+    /      .col-md-3.wow.zoomIn.animated
+    /        i.fa.fa-desktop
+    /        h3 Responsive
+    /        p Fusce fermentum placerat magna ac pharetra. Aliquam euismod elit non ipsum lacinia consectetur.
+    /      .col-md-3.wow.zoomIn.animated
+    /        i.fa.fa-cog
+    /        h3 Customizable
+    /        p Fusce fermentum placerat magna ac pharetra. Aliquam euismod elit non ipsum lacinia consectetur.
+    /      .col-md-3.wow.zoomIn.animated
+    /        i.fa.fa-facebook
+    /        h3 Lovely design
+    /        p Fusce fermentum placerat magna ac pharetra. Aliquam euismod elit non ipsum lacinia consectetur.
+    /      .col-md-3.wow.zoomIn.animated
+    /        i.fa.fa-mobile
+    /        h3 Mobile Friendly
+    /        p Fusce fermentum placerat magna ac pharetra. Aliquam euismod elit non ipsum lacinia consectetur.
+    //! end of features section
+    /hr/
+    //! details section
+    /section#about.details
+    /  .container
+    /    .row
+    /      .col-md-5.col-xs-6.col-sm-6.wow.slideInUp.animated
+    /        img.img-responsive.details-phone alt="" src="img/verticle-phone.png" /
+    /      .col-md-6.col-md-offset-1.col-xs-6.col-sm-6.wow.slideInUp.animated
+    /        h4 dip into the details
+    /        h2 Beautiful on every device
+    /        img.img-responsive alt="" src="img/daag.png" /
+    /        p Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit.
+    /        ul
+    /          li
+    /            i.fa.fa-trophy
+    /            | Awesome design
+    /          li
+    /            i.fa.fa-mobile
+    /            | Fully responsive
+    /          li
+    /            i.fa.fa-bolt
+    /            | Retina ready
+    /          li
+    /            i.fa.fa-tachometer
+    /            | Tons of features and easy to use
+    //! end of details section
+    //! features details section
+    /section.feature-detail
+    /  .container
+    /    .row
+    /      .col-xs-5.wow.fadeInLeft.animated
+    /        h4 dip into the details
+    /        h2 Super easy to customize
+    /        img alt="" src="img/daag.png" /
+    /        p Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+    /      .col-xs-7.horizontal-phone.wow.fadeInRight.animated
+    /        img.img-responsive alt="phone" src="img/laid-phone2.png" /
+    //! end of features-detail section
+    //! pricing-slide section starts here
+    /section#testimonials.pricing-slide
+    /  .container
+    /    .row
+    /      .pricing-slide-heading.text-center
+    /        h4 quality has its price
+    /        h2 Pricings &amp; Plans
+    /        img alt="" class="img=responsive" src="img/daag.png" /
+    /      .the-pricing-slider
+    /        #carousel-example-generic.carousel.slide data-ride="carousel"
+    /          /! Indicators
+    /          ol.carousel-indicators
+    /            li.active data-slide-to="0" data-target="#carousel-example-generic"
+    /            li data-slide-to="1" data-target="#carousel-example-generic"
+    /            li data-slide-to="2" data-target="#carousel-example-generic"
+    /          /! Wrapper for slides
+    /          .carousel-inner role="listbox"
+    /            .item.active
+    /              .col-md-6.col-xs-12.col-sm-6.wow.zoomIn.animated
+    /                p Once upon a time all the Rivers combined to protest against the action of the Sea in making their waters salt. “When we come to you,” said they to the Sea.
+    /                .person
+    /                  img.img-circle.img-responsive alt="" src="img/slider-img-1.jpg" /
+    /                  h6 John Doe
+    /                  h5 CEO, THE RIVERS COMPANY
+    /              .col-md-6.col-xs-12.col-sm-6.wow.zoomIn.animated
+    /                p A shoe is not only a design, but it's a part of your body language, the way you walk. The way you're going to move is quite dictated by your shoes.
+    /                .person
+    /                  img.img-circle.img-responsive alt="" src="img/slider-img-2.jpg" /
+    /                  h6 Dean Winchester
+    /                  h5 UX DESIGNER, GOOGLE INC.
+    /            .item
+    /              .col-md-6.col-xs-12.col-sm-6.wow.zoomIn.animated
+    /                p Once upon a time all the Rivers combined to protest against the action of the Sea in making their waters salt. “When we come to you,” said they to the Sea.
+    /                .person
+    /                  img.img-circle.img-responsive alt="" src="img/slider-img-3.jpg" /
+    /                  h6 John Doe
+    /                  h5 CEO, THE RIVERS COMPANY
+    /              .col-md-6.col-xs-12.col-sm-6.wow.zoomIn.animated
+    /                p A shoe is not only a design, but it's a part of your body language, the way you walk. The way you're going to move is quite dictated by your shoes.
+    /                .person
+    /                  img.img-circle.img-responsive alt="" src="img/slider-img-5.jpg" /
+    /                  h6 Dean Winchester
+    /                  h5 UX DESIGNER, GOOGLE INC.
+    /            .item
+    /              .col-md-6.col-xs-12.col-sm-6.wow.zoomIn.animated
+    /                p Once upon a time all the Rivers combined to protest against the action of the Sea in making their waters salt. “When we come to you,” said they to the Sea.
+    /                .person
+    /                  img.img-circle.img-responsive alt="" src="img/slider-img-4.jpg" /
+    /                  h6 John Doe
+    /                  h5 CEO, THE RIVERS COMPANY
+    /              .col-md-6.col-xs-12.col-sm-6.wow.zoomIn.animated
+    /                p A shoe is not only a design, but it's a part of your body language, the way you walk. The way you're going to move is quite dictated by your shoes.
+    /                .person
+    /                  img.img-circle.img-responsive alt="" src="img/slider-img-6.jpg" /
+    /                  h6 Dean Winchester
+    /                  h5 UX DESIGNER, GOOGLE INC.
+    //! end of pricing-slide section
+    //! find section
+    /section.download
+    /  .container
+    /    .row
+    /      .col-md-8.col-sm-8
+    /        p
+    /          span> Like what you see?
+    /          | Get this great theme now!
+    /      .col-md-4.col-sm-4
+    /        button.features-btn view features
+    /        button.download-btn download now
+    //! end of find section
+    //! price-plan section
+    /section#pricing.price-plan.text-center
+    /  .container
+    /    .row
+    /      .pricing-heading
+    /        h4 quality has its price
+    /        h2 Pricings &amp; Plans
+    /        img.img-responsive alt="" src="img/daag.png" /
+    /      .pricing-tables
+    /        .col-md-3.col-sm-6.wow.zoomIn.animated
+    /          .single-table.free
+    /            .table-heading
+    /              h3 FREE
+    /            .table-price
+    /              h5
+    /                span> $
+    /                | 0
+    /              p /per month
+    /            .table-description
+    /              p
+    /                | Fusce fermentum placerat magna ac pharetra. Aliquam euismod elit non ipsum
+    /                a href="#"  lacinia
+    /                | consectetur.
+    /              button ORDER NOW
+    /        .col-md-3.col-sm-6.wow.zoomIn.animated
+    /          .single-table.personal
+    /            .table-heading
+    /              h3 Personal
+    /            .table-price
+    /              h5
+    /                span> $
+    /                | 25
+    /              p /per month
+    /            .table-description
+    /              p
+    /                | Fusce fermentum placerat magna ac pharetra. Aliquam euismod elit non ipsum
+    /                a href="#"  lacinia
+    /                | consectetur.
+    /              button ORDER NOW
+    /        .col-md-3.col-sm-6.wow.zoomIn.animated
+    /          .single-table.business
+    /            .table-heading
+    /              h3 Business
+    /            .table-price.business-price
+    /              h5
+    /                span> $
+    /                | 50
+    /              p /per month
+    /            .table-description
+    /              p
+    /                | Fusce fermentum placerat magna ac pharetra. Aliquam euismod elit non ipsum
+    /                a href="#"  lacinia
+    /                | consectetur.
+    /              button ORDER NOW
+    /        .col-md-3.col-sm-6.wow.zoomIn.animated
+    /          .single-table.ultimate
+    /            .table-heading
+    /              h3 Ultimate
+    /            .table-price
+    /              h5
+    /                span> $
+    /                | 99
+    /              p /per month
+    /            .table-description
+    /              p
+    /                | Fusce fermentum placerat magna ac pharetra. Aliquam euismod elit non ipsum
+    /                a href="#"  lacinia
+    /                | consectetur.
+    /              button ORDER NOW
+    //! end of price-plan section
+    //! contact section
+    /section#contact.contact.text-center
+    /  .container
+    /    .row
+    /      .contact-heading
+    /        h4 stay in touch
+    /        h2 Contact us
+    /        img.img-responsive alt="" src="img/daag.png" /
+    /      .col-md-2.col-md-offset-1.col-xs-4.col-sm-4
+    /        i.fa.fa-phone
+    /        p Phone: (415) 124-5678
+    /        p Fax: (412) 123-8290
+    /      .col-md-2.col-md-offset-2.col-xs-4.col-sm-4
+    /        i.fa.fa-map-marker
+    /        p 1001 Brickell Bay Dr.
+    /        p Suite 1900
+    /        p Miami, FL 33131
+    /      .col-md-2.col-md-offset-2.col-xs-4.col-sm-4.clearfix
+    /        i.fa.fa-envelope-o
+    /        p user@mail.com
+    /      .col-md-8.col-md-offset-2.col-xs-12.col-sm-12
+    /        article.contact-form
+    /          form action="contact"
+    /            .col-md-5.col-md-offset-1.contact-form-left
+    /              input.name placeholder="NAME*" type="text" /
+    /              input.email placeholder="EMAIL*" type="email" /
+    /              input.subject placeholder="SUBJECT*" type="text" /
+    /            .col-md-5.contact-form-right.text-right
+    /              textarea#message.message cols="30" name="message" placeholder="MESSAGE" rows="10"
+    /              input.submit-btn type="submit" value=("send message") /
+    //! end of contact section
+    //! google map api
+    /.map
+    /  .container-fluid
+    /    .row
+    /      #map
+    = render 'shared/footer'
+    /script src="js/jquery-2.1.1.js"
+    /script src="js/smoothscroll.js"
+    /script src="js/bootstrap.min.js"
+    /script src="js/custom.js"
+    /script src="js/wow.js"

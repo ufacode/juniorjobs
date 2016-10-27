@@ -1,20 +1,20 @@
 # frozen_string_literal: true
 class ProfilesController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :new]
+  before_action :authenticate_user!, only: [:edit, :update]
 
   def index
     @profiles = Profile.all
-    if params[:my]
-      @profiles = @profiles.where(user: current_user)
-      render 'my_index'
-    end
+    # if params[:my]
+    #   @profiles = @profiles.where(user: current_user)
+    #   render 'my_index'
+    # end
   end
 
   def show; end
 
   def new
     @profile = Profile.new
-    @user = user_signed_in? ? current_user : @profile.build_user
+    # @user = user_signed_in? ? current_user : @profile.build_user
   end
 
   def edit; end
@@ -45,7 +45,7 @@ class ProfilesController < ApplicationController
     @profile.destroy
     redirect_to profiles_url, notice: 'Profile was successfully destroyed.'
   end
-  
+
   def hide
     update_attribute!(:displayed, false)
   end

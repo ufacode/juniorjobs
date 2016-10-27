@@ -1,43 +1,9 @@
-h1 Listing profiles
+.container
+  .row
+    .col-lg-8
+      h1= t '.title'
 
-table
-  thead
-    tr
-      th Fio
-      th Name
-      th Description
-      th Money from
-      th Money to
-      th Location
-      th Category
-      th Expectations
-      th Skype
-      th Site
-      th Linkedin
-      th Photo
-      th Cv
-      th
+      = render @profiles
 
-  tbody
-    - @profiles.confirmed do |profile|
-      tr
-        td = profile.fio
-        td = profile.name
-        td = profile.description
-        td = profile.money_from
-        td = profile.money_to
-        td = profile.location
-        td = profile.category
-        td = profile.expectations
-        td = profile.skype
-        td = profile.site
-        td = profile.linkedin
-        td = profile.photo.thumb.url
-        td = profile.cv
-        td = link_to 'Show', profile
-        td = link_to 'Edit', edit_profile_path(profile)
-        td = link_to 'Destroy', profile, data: { confirm: 'Are you sure?' }, method: :delete
-
-br
-
-= link_to 'New Profile', new_profile_path
+    .col-lg-4
+      = link_to t('.add_profile'), new_profile_path, class: 'btn download-btn pull-right'

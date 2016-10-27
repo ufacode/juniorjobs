@@ -15,6 +15,7 @@ gem 'database_cleaner', group: [:development, :test]
 gem 'devise'
 gem 'factory_girl_rails', group: [:development, :test]
 gem 'faker', group: [:development, :test]
+gem 'font-awesome-sass'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'mini_magick'

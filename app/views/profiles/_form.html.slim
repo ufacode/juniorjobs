@@ -38,24 +38,33 @@
     .form-group
       = f.label :expectations
       = f.text_field :expectations, class: 'form-control'
-    .form-group
-      = f.label :skype
-      = f.text_field :skype, class: 'form-control'
-    .form-group
-      = f.label :site
-      = f.text_field :site, class: 'form-control'
-    .form-group
-      = f.label :linkedin
-      = f.text_field :linkedin, class: 'form-control'
+
+    fieldset
+      legend= t('.contacts')
+      .form-group
+        = f.label :linkedin
+        = f.text_field :linkedin, class: 'form-control'
+      .form-group
+        = f.label :skype
+        = f.text_field :skype, class: 'form-control'
+      .form-group
+        = f.label :site
+        = f.text_field :site, class: 'form-control'
+
+    - if @profile.persisted?
+      .form-group
+        strong E-mail
+        =  @profile.user.email
+    - else
+      = label_tag :email
+      = email_field_tag :email, '', class: 'form-control'
+
+  .col-lg-12
+    = f.submit t('.submit'), class: 'btn primary pull-right'
+
     - if @profile.persisted?
       .form-group
         = f.label "don't show this profile"
         = f.check_box :hide
 
-    = f.fields_for :user do |u|
-      = u.label :email
-      = u.text_field :email, class: 'form-control'
-
-  .col-lg-12
-    = f.submit t('.submit'), class: 'btn primary pull-right'
 

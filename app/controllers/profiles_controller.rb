@@ -20,16 +20,19 @@ class ProfilesController < ApplicationController
   def edit; end
 
   def create
-    @profile = Profile.new(profile_params)
-    @profile.save
-    if user_signed_in?
-      UserMailer.successful_create(@user).deliver_now
-      redirect_to @profile, notice: 'Profile was successfully created.'
+    @profile_creator = ProfileCreate.new(profile_params, params[:email], current_user)
+    done = @profile_creator.perform!
+    @profile = @profile_creator.profile
+
+    if done
+      if user_signed_in?
+        redirect_to rofile_path(@profile), notice: 'Profile was successfully created.'
+      else
+        redirect_to profiles_path, notice: 'To confirm your profile, check email'
+      end
     else
-      @user = User.new(user_params)
-      @user.save
-      UserMailer.registration_confirmation(@user).deliver_now
-      redirect_to :index, flash[:notice] = 'To confirm your profile, check email'
+      @profile.errors.add(:base, @profile_creator.error) if @profile_creator.error
+      render :new
     end
   end
 
@@ -37,7 +40,7 @@ class ProfilesController < ApplicationController
     if @profile.update(profile_params)
       redirect_to @profile, notice: 'Profile was successfully updated.'
     else
-      render :new
+      render :edit
     end
   end
 
@@ -57,7 +60,11 @@ class ProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:profile).permit(:fio, :name, :description, :money_from, :money_to, :location, :category,
-                                    :expectations, :skype, :site, :linkedin, :photo, :cv, user_attributes: [:email])
+    params
+      .require(:profile)
+      .permit(
+        :fio, :name, :description, :money_from, :money_to, :location, :category,
+        :expectations, :skype, :site, :linkedin, :photo, :cv
+      )
   end
 end

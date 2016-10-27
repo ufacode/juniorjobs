@@ -3,9 +3,8 @@ class Profile < ApplicationRecord
   include AASM
 
   belongs_to :user
-  accepts_nested_attributes_for :user
 
-  validates :user, :name, :fio, :skype, :site, :category, :cv, :photo, :location, :linkedin, :description, :expectations, presence: true
+  validates :name, :fio, :cv, :photo, :description, :expectations, presence: true
   validates :money_from, numericality: true
   validates :money_to, numericality: { greater_than: :money_from }
 

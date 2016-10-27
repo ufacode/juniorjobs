@@ -5,7 +5,7 @@ table
     tr
       th Fio
       th Name
-      th Descriprion
+      th Description
       th Money from
       th Money to
       th Location
@@ -19,11 +19,11 @@ table
       th
 
   tbody
-    - @profiles.each do |profile|
+    - @profiles.confirmed do |profile|
       tr
         td = profile.fio
         td = profile.name
-        td = profile.descriprion
+        td = profile.description
         td = profile.money_from
         td = profile.money_to
         td = profile.location

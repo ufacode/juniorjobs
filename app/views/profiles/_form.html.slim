@@ -13,8 +13,8 @@
     = f.label :name
     = f.text_field :name
   .field
-    = f.label :descriprion
-    = f.text_field :descriprion
+    = f.label :description
+    = f.text_field :description
   .field
     = f.label :money_from
     = f.text_field :money_from
@@ -39,7 +39,16 @@
   .field
     = f.label :linkedin
     = f.text_field :linkedin
-  
+  .field
+    = f.label "don't show this profile"
+    = f.check_box :hide
+
+  = f.fields_for :user do |builder|
+    = builder.label :email
+    = builder.text_field :email
+
+    
+
 
   .actions = f.submit
-end
+

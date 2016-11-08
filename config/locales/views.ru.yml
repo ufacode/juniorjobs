@@ -1,0 +1,17 @@
+ru:
+  profiles:
+    index:
+      title: Профили
+      add_profile: + Добавить профиль
+    new:
+      title: Добавить профиль
+    edit:
+      title: Редактировать профиль
+    form:
+      submit: Сохранить
+  shared:
+    header:
+      main: Главная
+      vacancies: Вакансии
+      profiles: Профили
+      contacts: Контакты

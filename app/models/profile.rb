@@ -2,6 +2,15 @@
 class Profile < ApplicationRecord
   include AASM
 
+  belongs_to :user
+
+  validates :name, :fio, :cv, :photo, :description, :expectations, presence: true
+  validates :money_from, numericality: true
+  validates :money_to, numericality: { greater_than: :money_from }
+
+  mount_uploader :photo, PhotoUploader
+  mount_uploader :cv, CvUploader
+
   aasm do
     state :unconfirmed, initial: true
     state :confirmed
@@ -9,34 +18,6 @@ class Profile < ApplicationRecord
     event :confirm do
       transitions from: :unconfirmed, to: :confirmed
     end
-  end
-
-  belongs_to :user
-  accepts_nested_attributes_for :user
-  validates :user, presence: true
-  mount_uploader :photo, PhotoUploader
-  mount_uploader :cv, CvUploader
-
-  validates :name, presence: true
-  validates :fio, presence: true
-  validates :skype, presence: true
-  validates :site, presence: true
-  validates :category, presence: true
-  validates :cv, presence: true
-  validates :photo, presence: true
-  validates :location, presence: true
-  validates :linkedin, presence: true
-  validates :description, presence: true
-  validates :expectations, presence: true
-  validates :money_from, numericality: true
-  validates :money_to, numericality: true
-  validate :money_from_cannot_be_greater_than_money_to
-
-  private
-
-  def money_from_cannot_be_greater_than_money_to
-    errors.add(:money_from, 'cannot be greater than money to') if
-    money_from > money_to
   end
 end
 

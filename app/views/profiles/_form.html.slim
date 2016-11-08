@@ -1,54 +1,70 @@
-= form_for @profile, html: { multipart: true } do |f|
+= form_for @profile, html: { multipart: true, class: 'form-vertical' } do |f|
 
-  .field
-    = f.label :Photo
-    = f.file_field :photo
-  .field
-    = f.label :Cv
-    = f.file_field :cv
-  .field
-    = f.label :fio
-    = f.text_field :fio
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :description
-    = f.text_field :description
-  .field
-    = f.label :money_from
-    = f.text_field :money_from
-  .field
-    = f.label :money_to
-    = f.text_field :money_to
-  .field
-    = f.label :location
-    = f.text_field :location
-  .field
-    = f.label :category
-    = f.text_field :category
-  .field
-    = f.label :expectations
-    = f.text_field :expectations
-  .field
-    = f.label :skype
-    = f.text_field :skype
-  .field
-    = f.label :site
-    = f.text_field :site
-  .field
-    = f.label :linkedin
-    = f.text_field :linkedin
-  .field
-    = f.label "don't show this profile"
-    = f.check_box :hide
+  = form_errors(@profile)
 
-  = f.fields_for :user do |builder|
-    = builder.label :email
-    = builder.text_field :email
+  .col-lg-4
+    .panel-success.panel
+      .panel-body
+        .form-group
+          = f.label :Photo
+          = f.file_field :photo
+    .panel-info.panel
+      .panel-body
+        .form-group
+          = f.label :Cv
+          = f.file_field :cv
+  .col-lg-8
+    .form-group
+      = f.label :fio
+      = f.text_field :fio, class: 'form-control'
+    .form-group
+      = f.label :name
+      = f.text_field :name, class: 'form-control'
+    .form-group
+      = f.label :description
+      = f.text_field :description, class: 'form-control'
+    .form-group
+      = f.label :money_from
+      = f.text_field :money_from, class: 'form-control'
+    .form-group
+      = f.label :money_to
+      = f.text_field :money_to, class: 'form-control'
+    .form-group
+      = f.label :location
+      = f.text_field :location, class: 'form-control'
+    .form-group
+      = f.label :category
+      = f.text_field :category, class: 'form-control'
+    .form-group
+      = f.label :expectations
+      = f.text_field :expectations, class: 'form-control'
 
-    
+    fieldset
+      legend= t('.contacts')
+      .form-group
+        = f.label :linkedin
+        = f.text_field :linkedin, class: 'form-control'
+      .form-group
+        = f.label :skype
+        = f.text_field :skype, class: 'form-control'
+      .form-group
+        = f.label :site
+        = f.text_field :site, class: 'form-control'
 
+    - if @profile.persisted?
+      .form-group
+        strong E-mail
+        =  @profile.user.email
+    - else
+      = label_tag :email
+      = email_field_tag :email, '', class: 'form-control'
 
-  .actions = f.submit
+  .col-lg-12
+    = f.submit t('.submit'), class: 'btn primary pull-right'
+
+    - if @profile.persisted?
+      .form-group
+        = f.label "don't show this profile"
+        = f.check_box :hide
+
 

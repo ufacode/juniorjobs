@@ -2,18 +2,15 @@
   .col-lg-12.col-md-12.col-sm-12.wow.zoomIn.animated.animated style=("visibility: visible; animation-name: zoomIn;")
     .single-table.free
       .table-heading
-        h3 FREE
+        h3 = profile.name
       .table-price
-        h5
-          span> $
-          | 0
-        p /per month
+        h5 = profile.location
       .table-description
-        p
-          | Fusce fermentum placerat magna ac pharetra. Aliquam euismod elit non ipsum
-          a href="#"  lacinia
+        p           = profile.description
+
+          a href = profile.cv
           | consectetur.
-        button ORDER NOW
+        button Full profile
 
 
 /td = profile.fio

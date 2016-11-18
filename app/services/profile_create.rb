@@ -29,7 +29,7 @@ class ProfileCreate
   def create_profile_and_user
     @user = User.create(email: @email, password: SecureRandom.urlsafe_base64(12))
     # Здесь надо отправлять письмо с confirmation от юзера
-    # UserMailer.registration_confirmation(@user).deliver_now
+    UserMailer.registration_confirmation(@user).deliver_now
     true
   end
 end

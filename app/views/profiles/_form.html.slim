@@ -6,13 +6,16 @@
     .panel-success.panel
       .panel-body
         .form-group
-          = f.label :Photo
+          = f.label :photo
           = f.file_field :photo
+          = f.hidden_field :photo_cache
+          = image_tag(@profile.photo_url(:thumb)) if @profile.photo?
     .panel-info.panel
       .panel-body
         .form-group
-          = f.label :Cv
+          = f.label :cv
           = f.file_field :cv
+          = f.hidden_field :cv_cache
   .col-lg-8
     .form-group
       = f.label :fio
@@ -51,13 +54,13 @@
         = f.label :site
         = f.text_field :site, class: 'form-control'
 
-    - if @profile.persisted?
-      .form-group
-        strong E-mail
-        =  @profile.user.email
-    - else
-      = label_tag :email
-      = email_field_tag :email, '', class: 'form-control'
+      - if user_signed_in?
+        .form-group
+          strong E-mail
+          =  current_user.email
+      - else
+        = label_tag :email
+        = email_field_tag :email, params[:email], class: 'form-control'
 
   .col-lg-12
     = f.submit t('.submit'), class: 'btn primary pull-right'

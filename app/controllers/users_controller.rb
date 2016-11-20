@@ -8,6 +8,11 @@ class UsersController < ApplicationController
 
   def show; end
 
+  def profiles
+    @user = User.find(params[:id])
+    @profiles = @user.profile
+  end
+
   def new
     @user = User.new
   end

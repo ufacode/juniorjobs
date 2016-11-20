@@ -3,11 +3,7 @@ class ProfilesController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update]
 
   def index
-    @profiles = Profile.all
-    # if params[:my]
-    #   @profiles = @profiles.where(user: current_user)
-    #   render 'my_index'
-    # end
+    @profiles = Profile.confirmed
   end
 
   def show; end
@@ -26,7 +22,7 @@ class ProfilesController < ApplicationController
 
     if done
       if user_signed_in?
-        redirect_to rofile_path(@profile), notice: 'Profile was successfully created.'
+        redirect_to profile_path(@profile), notice: 'Profile was successfully created.'
       else
         redirect_to profiles_path, notice: 'To confirm your profile, check email'
       end

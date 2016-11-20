@@ -19,6 +19,8 @@ class Profile < ApplicationRecord
       transitions from: :unconfirmed, to: :confirmed
     end
   end
+
+  # scope :confirmed, ->{ where(aasm_state: Profile.states[:confirmed]) }
 end
 
 # == Schema Information

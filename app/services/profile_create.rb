@@ -9,10 +9,15 @@ class ProfileCreate
   end
 
   def perform!
-    @profile = Profile.new(@params)
-    return false unless @profile.save
-
-    @current_user ? create_profile_for_user : create_profile_and_user
+    Profile.transaction do
+      @profile = Profile.create!(@params)
+      # return false unless @profile.save
+      # if @current_user.blank? && @email.blank?
+      #   @profile.errors.add(:base, 'E-mail must be not empty')
+      #   return false
+      # end
+      @current_user ? confirm_user : create_user
+    end
   rescue => e
     @error = e.message
     false
@@ -20,16 +25,18 @@ class ProfileCreate
 
   private
 
-  def create_profile_for_user
-    @profile.user = @current_user
-    @profile.confirm!
+  def create_user
+    @current_user = User.create!(email: @email, password: SecureRandom.urlsafe_base64(12))
+    # Здесь надо отправлять письмо с confirmation от юзера
+    # UserMailer.registration_confirmation(@user).deliver_now
+    confirm_user
     true
   end
 
-  def create_profile_and_user
-    @user = User.create(email: @email, password: SecureRandom.urlsafe_base64(12))
-    # Здесь надо отправлять письмо с confirmation от юзера
-    UserMailer.registration_confirmation(@user).deliver_now
+  def confirm_user
+    @profile.update(user: @current_user)
+    @profile.confirm! if @current_user.confirmed?
+    #   Devise::Mailer.confirmation_instructions(@current_user).deliver
     true
   end
 end

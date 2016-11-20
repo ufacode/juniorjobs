@@ -1,13 +1,13 @@
 # frozen_string_literal: true
-class ConfirmationsController < DeviseController
-  protected
+class Users::ConfirmationsController < Devise::ConfirmationsController
+  after_action :set_profiles, only: [:show]
 
-  def do_confirm
-    @confirmable.confirm
-    set_flash_message :notice, :confirmed
-    self.resource.profiles.find_each do |profile|
+  private
+
+  def set_profiles
+    return unless resource.errors.empty?
+    resource.profiles.find_each do |profile|
       profile.confirm!
     end
-    sign_in_and_redirect(resource_name, @confirmable)
   end
 end

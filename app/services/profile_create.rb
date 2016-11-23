@@ -10,7 +10,7 @@ class ProfileCreate
 
   def perform!
     Profile.transaction do
-      @profile = Profile.create!(@params)
+      @profile = Profile.create(@params)
       @current_user ? confirm_user : create_user
     end
   rescue => e

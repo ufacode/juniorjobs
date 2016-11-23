@@ -9,9 +9,9 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
     if resource.errors.empty?
       set_flash_message!(:notice, :confirmed)
       # respond_with_navigational(resource){ redirect_to after_confirmation_path_for(resource_name, resource) }
-      respond_with_navigational(resource){ sign_in_and_redirect resource }
+      respond_with_navigational(resource) { sign_in_and_redirect resource }
     else
-      respond_with_navigational(resource.errors, status: :unprocessable_entity){ render :new }
+      respond_with_navigational(resource.errors, status: :unprocessable_entity) { render :new }
     end
   end
 
@@ -19,8 +19,6 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
 
   def set_profiles
     return unless resource.errors.empty?
-    resource.profiles.find_each do |profile|
-      profile.confirm!
-    end
+    resource.profiles.find_each(&:confirm!)
   end
 end

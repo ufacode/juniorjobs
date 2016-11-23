@@ -6,7 +6,9 @@ class ProfilesController < ApplicationController
     @profiles = Profile.confirmed
   end
 
-  def show; end
+  def show
+    @profile = Profile.find(params[:id])
+   end
 
   def new
     @profile = Profile.new
@@ -51,9 +53,9 @@ class ProfilesController < ApplicationController
 
   private
 
-  def set_profile
-    @profile = Profile.find(params[:id])
-  end
+  # def set_profile
+  # @profile = Profile.find(params[:id])
+  # end
 
   def profile_params
     params

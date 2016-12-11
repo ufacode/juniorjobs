@@ -11,6 +11,7 @@ gem 'byebug', group: [:development, :test], platform: :mri
 gem 'bullet', group: [:development]
 gem 'carrierwave'
 gem 'coffee-rails', '~> 4.2'
+gem 'capybara'
 gem 'database_cleaner', group: [:development, :test]
 gem 'devise'
 gem 'factory_girl_rails', group: [:development, :test]
@@ -18,6 +19,7 @@ gem 'faker', group: [:development, :test]
 gem 'font-awesome-sass'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
+gem 'launchy', '~> 2.4', '>= 2.4.3'
 gem 'mini_magick'
 gem 'mysql2', '>= 0.3.18', '< 0.5'
 gem 'nprogress-rails' # turbolinks progressbar

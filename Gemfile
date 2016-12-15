@@ -12,6 +12,7 @@ gem 'bullet', group: [:development]
 gem 'carrierwave'
 gem 'coffee-rails', '~> 4.2'
 gem 'capybara'
+gem 'capybara-email'
 gem 'database_cleaner', group: [:development, :test]
 gem 'devise'
 gem 'factory_girl_rails', group: [:development, :test]

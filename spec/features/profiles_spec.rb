@@ -35,5 +35,17 @@ do
     user = create(:profile)
     visit_root_path
     click_button '.add_profile'
-    page.should have_content(user.email)
+    page.should have_content(@email)
 end
+end
+feature 'Emailer' do
+  background do
+    clear_emails
+    visit email_trigger_path
+
+    open_email('test@example.com')
+  end
+  scenario 'confirm' do
+    current_email.click_link 'Confirm my account'
+    expect(page).to have_content 'Profile page'
+  end
